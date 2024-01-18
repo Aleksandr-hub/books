@@ -9,6 +9,7 @@
 3. Налаштуйте підключення до БД в .env, compose.override.yaml та compose.yaml.
 4. Запустіть локальний сервер "symfony server:start -d"
 5. Запустіть Docker Compose у фоновому режимі (-d): "docker-compose up -d"
+6. Тепер можна запустити згенеровану міграцію, для оновлення схеми локальної бази даних:"symfony console doctrine:migrations:migrate"
 
 ## Опис структури даних
 
