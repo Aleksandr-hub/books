@@ -1,0 +1,40 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+api_author_create:
+    path: /api/authors/create
+    controller: 'App\Controller\Api\AuthorController::create'
+    methods: [ 'POST' ]
+
+api_author_list:
+    path: /api/authors/list
+    controller: 'App\Controller\Api\AuthorController::list'
+    methods: ['GET']
+
+api_book_create:
+    path: /api/books/create
+    controller: 'App\Controller\Api\BookController::create'
+    methods: ['POST']
+
+api_books_list:
+    path: /api/books/list
+    controller: 'App\Controller\Api\BookController::list'
+    methods: ['GET']
+
+books_search_by_author:
+    path: /api/books/search
+    controller: 'App\Controller\Api\BookController::searchByAuthor'
+    methods: ['GET']
+
+books_show:
+    path: /api/books/{id}
+    controller: 'App\Controller\Api\BookController::show'
+    methods: ['GET']
+
+books_edit:
+    path: /api/books/{id}
+    controller: 'App\Controller\Api\BookController::edit'
+    methods: ['PUT']
