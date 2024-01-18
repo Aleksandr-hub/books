@@ -73,12 +73,13 @@ class AuthorController extends AbstractController
      */
     public function list(Request $request): Response
     {
+        $requestData = json_decode($request->getContent(), true);
         $authorsQuery = $this->doctrine->getRepository(Author::class)->createQueryBuilder('a')
             ->getQuery();
 
         $pagination = $this->paginator->paginate(
             $authorsQuery,
-            $request->query->getInt('page', 1), // Номер поточної сторінки
+            $requestData['page'] ?? 1, // Номер поточної сторінки
             10 // Кількість елементів на сторінці
         );
 

@@ -96,11 +96,12 @@ class BookController extends AbstractController
      */
     public function list(Request $request): JsonResponse
     {
+        $requestData = json_decode($request->getContent(), true);
         $booksQuery = $this->doctrine->getRepository(Book::class)->createQueryBuilder('a')
             ->getQuery();
         $pagination = $this->paginator->paginate(
             $booksQuery,
-            $request->query->getInt('page', 1), // Номер поточної сторінки
+            $requestData['page'] ?? 1, // Номер поточної сторінки
             10 // Кількість елементів на сторінці
         );
         $books = $pagination->getItems();
